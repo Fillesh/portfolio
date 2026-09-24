@@ -237,13 +237,12 @@ async function ab() {
 }
 
 async function live() {
-  const el = $('#cn'), dl = $('#cd'), tm = $('#ct'), sp = $('#sp');
+  const el = $('#cn'), tm = $('#ct'), sp = $('#sp');
   const L = 24, bl = '▁▂▃▄▅▆▇█';
-  let n = TOT, d = 0;
+  let n = TOT;
   const h = Array.from({ length: L }, () => 2 + Math.random() * 3 | 0);
   const clk = () => { tm.textContent = new Date().toTimeString().slice(0, 8); };
   const spk = () => { sp.textContent = h.map(v => bl[v]).join(''); };
-  dl.textContent = '0';
   clk(); spk();
 
   if (rd) el.textContent = fm(n);
