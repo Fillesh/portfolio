@@ -282,12 +282,14 @@ footer .quote {
   font-family: var(--px);
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   min-height: 1.4em;
-  margin-bottom: 0.3rem;
+  margin-bottom: 1rem;
 }
 
 footer .end {
   opacity: 0.6;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.15em; 
+  text-transform: uppercase; 
+  font-size: 0.8rem;
 }
 
 @media (max-width:900px){
