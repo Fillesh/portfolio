@@ -235,10 +235,37 @@ async function ab() {
   rb(1);
 }
 
+const IDS=[9391468976,94647229517154,88033955914813,131079272918660,109883052223750,77021749781226,95491140879721,98484885893001,14266669489,17435076424,129035895655249,4934471106,3311165597];
+const FB={95491140879721:1e8,98484885893001:4e6};
+
+async function fv(){
+  const u={},ok=new Set();
+  let t=0;
+  await Promise.all(IDS.map(async p=>{
+    try{
+      const r=await fetch(`https://apis.roproxy.com/universes/v1/places/${p}/universe`);
+      if(r.ok){const d=await r.json();if(d.universeId)u[d.universeId]=p}
+    }catch{}
+  }));
+  const k=Object.keys(u);
+  if(!k.length)return 0;
+  try{
+    const r=await fetch(`https://games.roproxy.com/v1/games?universeIds=${k.join(',')}`);
+    if(r.ok)(await r.json()).data.forEach(g=>{ok.add(u[g.id]);t+=g.visits});
+  }catch{}
+  if(!ok.size)return 0;
+  for(const p in FB)if(!ok.has(+p))t+=FB[p];
+  return t;
+}
+
 async function live() {
   const el = $('#cn'), tm = $('#ct'), sp = $('#sp');
   const L = 24, bl = '▁▂▃▄▅▆▇█';
-  let n = TOT;
+  let d=1;
+  el.textContent='LOADING';
+  const ld=setInterval(()=>{el.textContent='LOADING'+'.'.repeat(d++%4)},400);
+  let n=await fv()||TOT;
+  clearInterval(ld);
   const h = Array.from({ length: L }, () => 2 + Math.random() * 3 | 0);
   const clk = () => { tm.textContent = new Date().toTimeString().slice(0, 8); };
   const spk = () => { sp.textContent = h.map(v => bl[v]).join(''); };
@@ -257,6 +284,16 @@ async function live() {
     });
     el.textContent = fm(n);
   }
+  setInterval(async()=>{
+  const v=await fv();
+  if(v&&v!==n){
+    n=v;
+    el.textContent=fm(n);
+    el.classList.add('up');
+    setTimeout(()=>el.classList.remove('up'),400);
+    clk();
+  }
+},60000);
 }
 
 function go() {
