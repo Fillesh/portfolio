@@ -84,13 +84,22 @@ main,header.top,footer{position:relative;z-index:2}
 
 .ps1{color:var(--yd)}
 
-header.top{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;
-  padding:.75rem 5vw;
-  background:rgba(0,0,0,.82);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--yf);
+header.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 40px;
+  background: rgba(0,0,0,.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--yf);
 }
 .brand{display:flex;align-items:center;gap:.4rem;font-size:.95rem;white-space:nowrap}
 .brand .blk{display:inline-block;width:.6em;height:1.1em;background:var(--y);animation:blink 1s steps(1) infinite}
