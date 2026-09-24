@@ -10,12 +10,12 @@ const C = {
   roles: [
     'Full-Stack Scripter',
     'Roblox Developer',
-    'SCRIPTING / UI / Animation / SFX'
+    'SCRIPTING / UI / SFX / ANIM'
   ],
   lead: 'Full-stack scripter who has contributed to over 10B+ roblox visits.',
 
   about: [
-    "Hey, I'm Fillesh. I've been scripting on Roblox for 6 years. I'm a full-stack scripter and I've contributed to over 10B+ visits.",
+    "Hey, I'm Fillesh. I've been scripting on Roblox for 6 years. I'm a full-stack scripter and I've contributed to over 8.5B+ visits.",
     "Besides scripting I also do SFX, animation and UI. I'm getting into VFX as well, but it's pretty low right now.",
     "Outside Roblox I write Python, C#, C, HTML, CSS, JavaScript and Java. Python, C# and HTML are my strongest.",
     "Right now I'm focused on my own Dishonored Framework, plus Anime Divers and FUT. (Which are games from a well known studio)",
@@ -33,14 +33,15 @@ const C = {
     { n: 'Lua(u)', lv: 'Expert',                   p: 96 },
     { n: 'Python',           lv: 'Advanced to Proficient',   p: 93 },
     { n: 'C#',               lv: 'Advanced', p: 80 },
-    { n: 'HTML',             lv: 'Intermediate to Advanced',                 p: 68 },
+    { n: 'HTML',             lv: 'Intermediate to Advanced',                 p: 70 },
     { n: 'CSS',              lv: 'Intermediate',             p: 55 },
     { n: 'JavaScript',       lv: 'Intermediate',             p: 55 },
     { n: 'C',                lv: 'Novice to Intermediate',   p: 38 },
     { n: 'Java',             lv: 'Novice',                   p: 25 },
-    { n: 'SFX (Roblox)',             lv: 'Intermediate',                   p: 69 },
+    { n: 'SFX (Roblox)',             lv: 'Intermediate to Advanced',                   p: 72 },
     { n: 'UI REDESIGN (Roblox)',             lv: 'Intermediate',                   p: 57 },
-    { n: 'VFX',             lv: 'Beginner',                   p: 13 }
+    { n: 'Animating (Roblox)',             lv: 'Novice to Intermediate',                   p: 42 },
+    { n: 'VFX (Roblox)',             lv: 'Beginner',                   p: 13 }
   ],
 
   also: '',
@@ -84,7 +85,7 @@ const C = {
 
   q: [
     "Hi im fillesh",
-    '10B+ visits and counting',
+    '8.5B+ visits and counting',
     'Can i get free % of your game',
     'workspace:Destroy() oo im a genius',
     'I feel like mr robot',
