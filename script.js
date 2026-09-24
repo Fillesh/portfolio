@@ -72,7 +72,7 @@ const C = {
     { n: 'Project Genius',       r: 'Developer',      d: 1 },
     { n: 'VB:RO',              r: 'Contributor',      d: 1 },
     { n: 'Prodigy',               r: 'Tester',         d: 1 },
-    { n: 'Apex Strikers',               r: 'Tester',         d: 1 },
+    { n: 'Apex Strikers',               r: 'Tester',         d: 1 }
   ],
 
   ct: [
