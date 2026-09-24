@@ -76,10 +76,10 @@ const C = {
   ],
 
   ct: [
-    { k: 'socials', label: 'guns.lol/fillesh',                   href: 'https://guns.lol/fillesh' },
-    { k: 'roblox',  label: 'roblox.com/users/1684644288',        href: 'https://www.roblox.com/users/1684644288/profile' },
-    { k: 'discord', label: 'Fillesh (876476368748154960)',       href: 'https://discord.com/users/876476368748154960' },
-    { k: 'medal',   label: 'medal.tv/u/Fillesh',                 href: 'https://medal.tv/u/Fillesh' }
+    { k: 'roblox',  label: 'filleshh',        href: 'https://www.roblox.com/users/1684644288/profile' },
+    { k: 'youtube', label: '/fillesh',                   href: 'https://www.youtube.com/@fillesh' },
+    { k: 'discord', label: 'Fillesh',       href: 'https://discord.com/users/876476368748154960' },
+    { k: 'medal',   label: '/Fillesh',                 href: 'https://medal.tv/u/Fillesh' }
   ],
 
   q: [
@@ -211,7 +211,7 @@ function bld() {
   $('#ln').innerHTML = C.ct.map(c =>
     `<li><span class="k">${es(c.k)}</span><span class="ps1">=&gt;</span><a href="${es(c.href)}" target="_blank" rel="noopener">${es(c.label)}</a></li>`).join('');
 
-  $('#ed').textContent = '[ connection closed by remote host ] // ' + new Date().getFullYear() + ' ' + C.nick;
+  $('#ed').textContent = 'Portfolio project || ' + C.nick;
 
   $$('[data-t]').forEach(el => { el.textContent = el.dataset.t; el.classList.add('pending'); });
 
