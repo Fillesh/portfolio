@@ -24,9 +24,8 @@ const C = {
 
   info: [
     ['name', 'Fillesh'],
-    ['role', 'Full-Stack Scripter'],
-    ['exp', '6 years'],
-    ['status', 'ACTIVE']
+    ['aspect', 'Full-Stack Scripter'],
+    ['experience', '6 years'],
   ],
 
   sk: [
