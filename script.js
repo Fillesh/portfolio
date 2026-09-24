@@ -174,7 +174,7 @@ function bld() {
   $('#tp').textContent = ps;
   $$('.ps').forEach(e => e.textContent = ps);
 
-  const secs = ['home', 'about', 'skills', 'now', 'work', 'contact'];
+  const secs = ['home', 'about', 'skills', 'priority', 'work', 'contact'];
   $('#nv').innerHTML = secs.map(s => `<a href="#${s}">./${s}</a>`).join('');
 
   const nm = $('#name');
