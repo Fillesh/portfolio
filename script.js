@@ -77,9 +77,9 @@ const C = {
 
   ct: [
     { k: 'roblox',  label: 'filleshh',        href: 'https://www.roblox.com/users/1684644288/profile' },
-    { k: 'youtube', label: '/fillesh',                   href: 'https://www.youtube.com/@fillesh' },
+    { k: 'youtube', label: 'fillesh',                   href: 'https://www.youtube.com/@fillesh' },
     { k: 'discord', label: 'Fillesh',       href: 'https://discord.com/users/876476368748154960' },
-    { k: 'medal',   label: '/Fillesh',                 href: 'https://medal.tv/u/Fillesh' }
+    { k: 'medal',   label: 'Fillesh',                 href: 'https://medal.tv/u/Fillesh' }
   ],
 
   q: [
