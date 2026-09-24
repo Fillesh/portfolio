@@ -211,7 +211,7 @@ function bld() {
   $('#ln').innerHTML = C.ct.map(c =>
     `<li><span class="k">${es(c.k)}</span><span class="ps1">=&gt;</span><a href="${es(c.href)}" target="_blank" rel="noopener">${es(c.label)}</a></li>`).join('');
 
-  $('#ed').textContent = 'Portfolio project || ' + C.nick;
+  $('#ed').textContent = 'designed and developed from scratch by // ' + new Date().getFullYear() + ' ' + C.nick;
 
   $$('[data-t]').forEach(el => { el.textContent = el.dataset.t; el.classList.add('pending'); });
 
