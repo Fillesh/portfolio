@@ -12,7 +12,7 @@ const C = {
     'Roblox Developer',
     'SCRIPTING / UI / SFX / ANIM'
   ],
-  lead: 'Full-stack scripter who has contributed to over 10B+ roblox visits.',
+  lead: 'Full-stack scripter who has contributed to over 8.5B+ roblox visits.',
 
   about: [
     "Hey, I'm Fillesh. I've been scripting on Roblox for 6 years. I'm a full-stack scripter and I've contributed to over 8.5B+ visits.",
