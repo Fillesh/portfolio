@@ -259,44 +259,6 @@ async function live() {
   }
 }
 
-const BT = [
-  'fillesh-os v6.0',
-  '[  OK  ] loading /fillesh-dev/portfolio/roblox',
-  '[  OK  ] loading modules: scripting, ui, animation, sfx',
-  '[  OK  ] connecting to contributed visits',
-  '[  OK  ] connecting to alt skills',
-  '[  OK  ] syncing games and projects',
-  '> loading portfolio ............ 100%'
-];
-
-async function bt() {
-  const bx = $('#bx'), lg = $('#bl'), hi = $('#hi');
-  let sk = false;
-  const skip = () => { sk = true; };
-  bx.addEventListener('click', skip);
-  addEventListener('keydown', skip, { once: true });
-
-  if (!rd) {
-    for (const l of BT) {
-      if (sk) break;
-      const d = document.createElement('div'); d.className = 'bo';
-      lg.appendChild(d);
-      await ty(d, l, { sp: 9, j: 10, cr: false, ab: () => sk });
-      await sl(sk ? 0 : 60 + Math.random() * 140);
-    }
-    if (!sk) {
-      await sl(350);
-      await ty(hi, "Hi, I'm Fillesh.", { sp: 105, j: 45, keep: true, ab: () => sk });
-      if (!sk) await sl(1100);
-    }
-  }
-  bx.classList.add('done');
-  document.body.classList.remove('locked');
-  removeEventListener('keydown', skip);
-  setTimeout(() => bx.remove(), 1000);
-  go();
-}
-
 function go() {
   const io = new IntersectionObserver(es => {
     es.forEach(e => {
@@ -468,6 +430,6 @@ function rn() {
 bld();
 rn();
 term();
-bt();
+go();
 
 })();
