@@ -52,7 +52,7 @@ main,header.top,footer{position:relative;z-index:2}
 [data-t]{white-space:pre-wrap}
 [data-t].pending{visibility:hidden}
 .ghost{visibility:hidden}
-.caret{display:inline-block;width:0;position:relative}
+.caret{display:inline;position:relative}
 .caret::after{
   content:'';position:absolute;left:1px;top:.18em;width:.58em;height:1.1em;
   background:var(--y);animation:blink 1s steps(1) infinite;
