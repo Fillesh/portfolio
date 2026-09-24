@@ -10,9 +10,9 @@ const C = {
   roles: [
     'Full-Stack Scripter',
     'Roblox Developer',
-    'UI / Animation / SFX'
+    'SCRIPTING / UI / Animation / SFX'
   ],
-  lead: 'Roblox scripter for 6 years. Full-stack scripter who has contributed to over 10B+',
+  lead: 'Full-stack scripter who has contributed to over 10B+ roblox visits.',
 
   about: [
     "Hey, I'm Fillesh. I've been scripting on Roblox for 6 years. I'm a full-stack scripter and I've contributed to over 10B+ visits.",
