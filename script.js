@@ -382,7 +382,14 @@ function term() {
     hello:    () => ["Hiiiii, I'm Fillesh."],
     date:     () => [new Date().toString()],
     exit:     () => ['There is no escape.'],
-    sudo:     () => ['Bro thinks he is terry davis or sum'],
+    sudo: a => {
+      const cmd = a.join(' ').toLowerCase();
+      if (cmd === 'install opsec') {
+        setTimeout(() => { location.href = 'fun.html'; }, 1800);
+        return ['[mr.robot terminal] password for user: ********', 'installing opsec...', 'opsec installed.'];
+      }
+      return ['Bro thinks he is terry davis or sum'];
+    },
     rm:       () => ['Nice try elliot.'],
     ping:     () => ['64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.042 ms', 'There is no place like home.'],
     cat: a => {
