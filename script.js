@@ -329,7 +329,7 @@ function go() {
 async function hero() {
   $('#hf').classList.add('in');
   live();
-  await ty($('#cmd'), 'whoami', { sp: 85, j: 50, dl: 250 });
+  await ty($('#cmd'), './who_am_i.sh', { sp: 85, j: 50, dl: 250 });
   await sl(150);
   $('#name').classList.add('show');
   await sl(900);
