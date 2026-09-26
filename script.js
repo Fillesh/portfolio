@@ -385,7 +385,7 @@ function term() {
     sudo: a => {
       const cmd = a.join(' ').toLowerCase();
       if (cmd === 'install opsec') {
-        setTimeout(() => { location.href = 'fun.html'; }, 1800);
+        setTimeout(() => { location.href = '/fun'; }, 1800);
         return ['[mr.robot terminal] password for user: ********', 'installing opsec...', 'opsec installed.'];
       }
       return ['Bro thinks he is terry davis or sum'];
