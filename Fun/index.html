@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>opsec.exe</title>
+<style>
+  :root{ --y:#ffd60a; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;background:#000;overflow:hidden}
+
+  #rn{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.16;pointer-events:none}
+
+  .stage{
+    position:fixed;inset:0;z-index:2;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .frame{
+    position:relative;
+    border:2px solid var(--y);
+    box-shadow:0 0 40px rgba(255,214,10,.35), inset 0 0 30px rgba(255,214,10,.08);
+    background:#000;
+  }
+  .frame video{width:100%;height:100%;object-fit:contain;display:block}
+
+  .corner{position:absolute;width:26px;height:26px;border:3px solid var(--y);z-index:3}
+  .corner.tl{top:-10px;left:-10px;border-right:0;border-bottom:0}
+  .corner.tr{top:-10px;right:-10px;border-left:0;border-bottom:0}
+  .corner.bl{bottom:-10px;left:-10px;border-right:0;border-top:0}
+  .corner.br{bottom:-10px;right:-10px;border-left:0;border-top:0}
+
+  .gate{
+    position:fixed;inset:0;z-index:10;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    cursor:pointer;
+    transition:opacity .5s ease;
+  }
+  .gate span{
+    font-family:'VT323','Share Tech Mono','Courier New',monospace;
+    color:var(--y);font-size:2rem;letter-spacing:.04em;
+    text-shadow:0 0 18px rgba(255,214,10,.4);
+    animation:blink 1.8s ease-in-out infinite;
+  }
+  .gate.gone{opacity:0;pointer-events:none}
+  @keyframes blink{50%{opacity:.35}}</style>
+</head>
+<body>
+
+<canvas id="rn"></canvas>
+
+<div class="stage">
+  <div class="frame">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <video id="vid" muted loop playsinline></video>
+  </div>
+</div>
+
+<div class="gate" id="gate"><span>click to enter...</span></div>
+
+<script>
+(() => {
+  const cv = document.getElementById('rn'), cx = cv.getContext('2d');
+  const sz = 16; let cols, dr, w, h;
+  const rs = () => {
+    w = cv.width = innerWidth; h = cv.height = innerHeight;
+    cols = Math.ceil(w / sz);
+    dr = Array.from({ length: cols }, () => Math.random() * -60);
+  };
+  rs(); addEventListener('resize', rs);
+  const gl = '01';
+  setInterval(() => {
+    if (document.hidden) return;
+    cx.fillStyle = 'rgba(0,0,0,.14)'; cx.fillRect(0, 0, w, h);
+    cx.fillStyle = '#ffd60a'; cx.font = sz + 'px monospace';
+    for (let i = 0; i < cols; i++) {
+      cx.fillText(gl[Math.random() * gl.length | 0], i * sz, dr[i] * sz);
+      if (dr[i] * sz > h && Math.random() > .975) dr[i] = 0;
+      dr[i]++;
+    }
+  }, 70);
+
+  const OPSECS = ['funone.mp4', 'funtwo.mp4', 'funthree.mp4'];
+  const vid = document.getElementById('vid');
+  const frame = document.querySelector('.frame');
+  vid.src = 'Fun/' + OPSECS[Math.random() * OPSECS.length | 0];
+
+  vid.addEventListener('loadedmetadata', () => {
+    const vw = vid.videoWidth, vh = vid.videoHeight;
+    const maxW = innerWidth * 0.92, maxH = innerHeight * 0.92;
+    const scale = Math.min(maxW / vw, maxH / vh, 1);
+    frame.style.width = (vw * scale) + 'px';
+    frame.style.height = (vh * scale) + 'px';
+  });
+
+  const gate = document.getElementById('gate');
+  const unmute = () => {
+    vid.muted = false;
+    vid.play().catch(() => {});
+    gate.classList.add('gone');
+    setTimeout(() => gate.remove(), 550);
+    removeEventListener('keydown', unmute);
+  };
+  gate.addEventListener('click', unmute);
+  addEventListener('keydown', unmute);
+})();
+</script>
+
+</body>
+</html>
