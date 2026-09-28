@@ -283,3 +283,7 @@ footer .end{opacity:.7}
   h1.name{opacity:1}
   html{scroll-behavior:auto}
 }
+
+@media (max-width:900px){
+  :root{--z:1}
+}
