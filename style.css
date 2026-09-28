@@ -6,10 +6,11 @@
   --yf:rgba(255,214,10,.14);
   --mono:'Share Tech Mono','Courier New',monospace;
   --px:'VT323','Share Tech Mono','Courier New',monospace;
+  --z:1.15;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px * var(--z))}
 body{
   background:var(--bg);
   color:var(--y);
@@ -18,6 +19,7 @@ body{
   line-height:1.7;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
+  zoom:var(--z);
 }
 ::selection{background:var(--y);color:#000}
 a{color:inherit;text-decoration:none}
@@ -104,7 +106,7 @@ section{padding:110px 0 30px}
 }
 .reveal.in{opacity:1;transform:none;filter:none}
 
-.hero{min-height:100vh;display:flex;align-items:center;padding:110px 0 60px}
+.hero{min-height:calc(100vh / var(--z));display:flex;align-items:center;padding:110px 0 60px}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:center}
 .hero-text .prompt{font-size:1.05rem;min-height:1.7em}
 h1.name{
@@ -269,7 +271,7 @@ footer .end{opacity:.7}
 @media (max-width:620px){
   header.top{flex-direction:column;align-items:flex-start;gap:.3rem;padding:.6rem 5vw}
   nav{justify-content:flex-start;font-size:.82rem;gap:.1rem .9rem}
-  html{scroll-padding-top:100px}
+  html{scroll-padding-top:calc(100px * var(--z))}
   .hero{padding-top:130px}
   .log{grid-template-columns:1fr;gap:.1rem}
   section{padding-top:90px}
