@@ -1,4 +1,4 @@
-const TOT = 8694811544; 
+const TOT = 8794811544; 
 
 (() => {
 'use strict';
@@ -71,18 +71,19 @@ const C = {
     { n: 'The Intruder: Continuity Roleplay',  r: 'Contributor',       u: 'https://www.roblox.com/games/119659092032634/The-Intruder-Continuity-Roleplay' },
     { n: 'Nullbound',  r: 'Developer',       u: 'https://www.roblox.com/games/120543835001096/Nullbound' },
     { n: 'Undead Detention',  r: 'Shareholder',       u: 'https://www.roblox.com/games/74422997432994/UNDEAD-DETENTION' },
-    { n: 'Anime Divers',          r: 'Lead Developer', d: 1 },
-    { n: 'Flop N Fight',          r: 'Investor',       d: 1 },
+    { n: 'Anime Divers',          r: 'Lead Developer', u: 'https://www.roblox.com/games/17755605872/Anime-Divers' },
+    { n: 'Flop N Fight',          r: 'Investor',       u: 'https://www.roblox.com/games/105018272363208/Flop-N-Fight' },
+    { n: 'Okenku',                r: 'Tester',         u: 'https://www.roblox.com/games/111858918922920/JoJo-Shenanigans' },
+    { n: 'Justice Battlegrounds', r: 'Developer',      u: 'https://www.roblox.com/games/117148219723944/Justice-Battlegrounds' },
+    { n: 'VB:RO',              r: 'Contributor',      u: 'https://www.roblox.com/games/86963269125807/Voidbound' },
+    { n: 'Invincible Standoff',               r: 'Contributor',         u: 'https://www.roblox.com/games/121541551743903/Invincible-Standoff' },
+    { n: 'Shinobi Tycoon', r: 'Contributor', u: 'https://www.roblox.com/games/78433357083178/Shinobi-Tycoon'},
     { n: 'Uma Magicians',         r: 'Contributor',    d: 1 },
-    { n: 'Okenku',                r: 'Tester',         d: 1 },
-    { n: 'Justice Battlegrounds', r: 'Developer',      d: 1 },
     { n: 'Project Genius',       r: 'Developer',      d: 1 },
-    { n: 'VB:RO',              r: 'Contributor',      d: 1 },
-    { n: 'Invincible Standoff',               r: 'Contributor',         d: 1 },
     { n: 'Shonen Lock',               r: 'Contributor',         d: 1 },
     { n: 'Prodigy',               r: 'Tester',         d: 1 },
     { n: 'Lock On',               r: 'Contributor',         d: 1 },
-    { n: 'Apex Strikers',               r: 'Tester',         d: 1 }
+    { n: 'Apex Strikers',               r: 'Tester',         d: 1 },
   ],
 
   ct: [
@@ -246,7 +247,7 @@ async function ab() {
   rb(1);
 }
 
-const IDS=[9391468976,94647229517154,88033955914813,131079272918660,109883052223750,77021749781226,95491140879721,98484885893001,14266669489,17435076424,129035895655249,4934471106,3311165597, 121541551743903, 74422997432994, 82171591239229, 119659092032634, 120543835001096, 86877445346146, 8073154099, 128828638194450, 111858918922920];
+const IDS=[9391468976,94647229517154,88033955914813,131079272918660,109883052223750,77021749781226,95491140879721,98484885893001,14266669489,17435076424,129035895655249,4934471106,3311165597, 121541551743903, 74422997432994, 82171591239229, 119659092032634, 120543835001096, 86877445346146, 8073154099, 128828638194450, 78433357083178, 111858918922920, 86963269125807, 117148219723944, 105018272363208, 17755605872];
 const FB={95491140879721:1e8,98484885893001:4e6};
 
 async function fv(){
