@@ -64,6 +64,13 @@ const C = {
     { n: 'Shut Sapphire',         r: 'Co-Owner',       u: 'https://www.roblox.com/games/129035895655249/Shut-Sapphire' },
     { n: 'KAT X',                 r: 'Developer',      u: 'https://www.roblox.com/games/95491140879721/KAT-X' },
     { n: 'Dragon Blox Ultimate',  r: 'Investor',       u: 'https://www.roblox.com/games/3311165597/Dragon-Blox-Ultimate' },
+    { n: 'Furry UGC Creator',  r: 'Developer',       u: 'https://www.roblox.com/games/86877445346146/Furry-UGC-Creator-Maker' },
+    { n: 'STAND OUT',  r: 'Content Creator',       u: 'https://www.roblox.com/games/128828638194450/STAND-OUT' },
+    { n: 'The Intruder',  r: 'Contributor',       u: 'https://www.roblox.com/games/8073154099/The-Intruder' },
+    { n: 'The Intruder: Continuity',  r: 'Developer',       u: 'https://www.roblox.com/games/82171591239229/The-Intruder-Continuity' },
+    { n: 'The Intruder: Continuity Roleplay',  r: 'Contributor',       u: 'https://www.roblox.com/games/119659092032634/The-Intruder-Continuity-Roleplay' },
+    { n: 'Nullbound',  r: 'Developer',       u: 'https://www.roblox.com/games/120543835001096/Nullbound' },
+    { n: 'Undead Detention',  r: 'Shareholder',       u: 'https://www.roblox.com/games/74422997432994/UNDEAD-DETENTION' },
     { n: 'Anime Divers',          r: 'Lead Developer', d: 1 },
     { n: 'Flop N Fight',          r: 'Investor',       d: 1 },
     { n: 'Uma Magicians',         r: 'Contributor',    d: 1 },
@@ -71,7 +78,10 @@ const C = {
     { n: 'Justice Battlegrounds', r: 'Developer',      d: 1 },
     { n: 'Project Genius',       r: 'Developer',      d: 1 },
     { n: 'VB:RO',              r: 'Contributor',      d: 1 },
+    { n: 'Invincible Standoff',               r: 'Contributor',         d: 1 },
+    { n: 'Shonen Lock',               r: 'Contributor',         d: 1 },
     { n: 'Prodigy',               r: 'Tester',         d: 1 },
+    { n: 'Lock On',               r: 'Contributor',         d: 1 },
     { n: 'Apex Strikers',               r: 'Tester',         d: 1 }
   ],
 
@@ -91,7 +101,8 @@ const C = {
     'Devex rates are horrible',
     'Roblox when am i getting a rdc invite',
     'Oh dont forget to follow my roblox',
-    'They call me Terry Davis reincarnation'
+    'They call me Terry Davis reincarnation',
+    'Roblox PLEASE dont miss my profile on the checkmark wave this time'
   ]
 };
 
@@ -235,7 +246,7 @@ async function ab() {
   rb(1);
 }
 
-const IDS=[9391468976,94647229517154,88033955914813,131079272918660,109883052223750,77021749781226,95491140879721,98484885893001,14266669489,17435076424,129035895655249,4934471106,3311165597];
+const IDS=[9391468976,94647229517154,88033955914813,131079272918660,109883052223750,77021749781226,95491140879721,98484885893001,14266669489,17435076424,129035895655249,4934471106,3311165597, 121541551743903, 74422997432994, 82171591239229, 119659092032634, 120543835001096, 86877445346146, 8073154099, 128828638194450, 111858918922920];
 const FB={95491140879721:1e8,98484885893001:4e6};
 
 async function fv(){
