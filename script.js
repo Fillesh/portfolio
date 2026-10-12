@@ -83,7 +83,7 @@ const C = {
     { n: 'Shonen Lock',               r: 'Contributor',         d: 1 },
     { n: 'Prodigy',               r: 'Tester',         d: 1 },
     { n: 'Lock On',               r: 'Contributor',         d: 1 },
-    { n: 'Apex Strikers',               r: 'Tester',         d: 1 },
+    { n: 'Apex Strikers',               r: 'Contributor',         d: 1 },
   ],
 
   ct: [
