@@ -78,6 +78,7 @@ const C = {
     { n: 'VB:RO',              r: 'Contributor',      u: 'https://www.roblox.com/games/86963269125807/Voidbound' },
     { n: 'Invincible Standoff',               r: 'Contributor',         u: 'https://www.roblox.com/games/121541551743903/Invincible-Standoff' },
     { n: 'Shinobi Tycoon', r: 'Contributor', u: 'https://www.roblox.com/games/78433357083178/Shinobi-Tycoon'},
+    { n: 'Arasaka Academy', r: 'Content Creator', u:'https://www.roblox.com/games/79597426745602/Arasaka-Academy-Cyberpunk'},
     { n: 'Uma Magicians',         r: 'Contributor',    d: 1 },
     { n: 'Project Genius',       r: 'Developer',      d: 1 },
     { n: 'Shonen Lock',               r: 'Contributor',         d: 1 },
