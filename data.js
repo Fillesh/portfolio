@@ -5,7 +5,7 @@ const PORTFOLIO = {
   lead: 'Full-stack scripter who has contributed to over 8.5B+ roblox visits.',
   fallbackVisits: 9764811544,
   fallbackPlaceVisits: { 95491140879721: 1e8, 98484885893001: 4e6 },
-  visitPlaceIds: [9391468976, 94647229517154, 88033955914813, 131079272918660, 109883052223750, 77021749781226, 95491140879721, 98484885893001, 14266669489, 17435076424, 129035895655249, 4934471106, 3311165597, 121541551743903, 74422997432994, 82171591239229, 119659092032634, 120543835001096, 86877445346146, 8073154099, 128828638194450, 78433357083178, 111858918922920, 86963269125807, 117148219723944, 105018272363208, 17755605872],
+  visitPlaceIds: [9391468976, 94647229517154, 88033955914813, 131079272918660, 109883052223750, 77021749781226, 95491140879721, 98484885893001, 14266669489, 17435076424, 129035895655249, 4934471106, 3311165597, 121541551743903, 71132543521245, 74422997432994, 82171591239229, 119659092032634, 120543835001096, 86877445346146, 8073154099, 128828638194450, 91698952875688, 78433357083178, 111858918922920, 86963269125807, 100042356384054, 84620525370262, 117148219723944, 105018272363208, 17755605872],
 
   sections: {
     about: 'about',
@@ -71,6 +71,8 @@ const PORTFOLIO = {
     { name: 'Dragon Blox Ultimate', role: 'Investor', url: 'https://www.roblox.com/games/3311165597/Dragon-Blox-Ultimate' },
     { name: 'Furry UGC Creator', role: 'Developer', url: 'https://www.roblox.com/games/86877445346146/Furry-UGC-Creator-Maker' },
     { name: 'STAND OUT', role: 'Content Creator', url: 'https://www.roblox.com/games/128828638194450/STAND-OUT' },
+    { name: 'Anime Squadron', role: 'Content Creator', url: 'https://www.roblox.com/games/71132543521245/Anime-Squadron' },
+    { name: 'Bahkruums', role: 'Contributor', url: 'https://www.roblox.com/games/91698952875688/Bahkruums' },
     { name: 'The Intruder', role: 'Contributor', url: 'https://www.roblox.com/games/8073154099/The-Intruder' },
     { name: 'The Intruder: Continuity', role: 'Developer', url: 'https://www.roblox.com/games/82171591239229/The-Intruder-Continuity' },
     { name: 'The Intruder: Continuity Roleplay', role: 'Contributor', url: 'https://www.roblox.com/games/119659092032634/The-Intruder-Continuity-Roleplay' },
@@ -84,12 +86,15 @@ const PORTFOLIO = {
     { name: 'Invincible Standoff', role: 'Contributor', url: 'https://www.roblox.com/games/121541551743903/Invincible-Standoff' },
     { name: 'Shinobi Tycoon', role: 'Contributor', url: 'https://www.roblox.com/games/78433357083178/Shinobi-Tycoon' },
     { name: 'Arasaka Academy', role: 'Content Creator', url: 'https://www.roblox.com/games/79597426745602/Arasaka-Academy-Cyberpunk' },
+    { name: '+1 Clap Per Click', role: 'Contributor', url: 'https://www.roblox.com/games/100042356384054/1-Clap-Per-Click' },
+    { name: 'All In Anime', role: 'Content Creator', url: 'https://www.roblox.com/games/94573621351052/All-In-Anime' },
     { name: 'Uma Magicians', role: 'Contributor', inDev: true },
     { name: 'Project Genius', role: 'Developer', inDev: true },
     { name: 'Shonen Lock', role: 'Contributor', inDev: true },
     { name: 'Prodigy', role: 'Tester', inDev: true },
     { name: 'Lock On', role: 'Contributor', inDev: true },
-    { name: 'Apex Strikers', role: 'Contributor', inDev: true }
+    { name: 'Apex Strikers', role: 'Contributor', inDev: true },
+    { name: 'Lift an object', role: 'Tester', inDev: true }
   ],
 
   workNote: 'and much more!!',
