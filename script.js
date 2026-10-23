@@ -92,7 +92,17 @@ async function roproxy() {
 
 async function visits() {
   const num = $('#cn');
+  
+  let dots = 0;
+  const loader = setInterval(() => {
+    num.textContent = 'loading' + '.'.repeat(dots);
+    dots = (dots + 1) % 4;
+  }, 350);
+
   let n = (await roproxy()) || D.fallbackVisits;
+  
+  clearInterval(loader);
+
   if (reduced) num.textContent = fmt(n);
   else {
     const start = performance.now(), span = 1400;
@@ -105,7 +115,9 @@ async function visits() {
       requestAnimationFrame(step);
     });
   }
+  
   num.textContent = fmt(n);
+  
   setInterval(async () => {
     const v = await roproxy();
     if (v && v !== n) { n = v; num.textContent = fmt(n); }
