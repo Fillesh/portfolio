@@ -57,23 +57,36 @@ async function roproxy() {
   const universes = {};
   const confirmed = new Set();
   let total = 0;
-  await Promise.all(D.visitPlaceIds.map(async place => {
+  
+  for (const place of D.visitPlaceIds) {
     try {
       const r = await fetch(`https://apis.roproxy.com/universes/v1/places/${place}/universe`);
       if (r.ok) {
         const d = await r.json();
         if (d.universeId) universes[d.universeId] = place;
       }
+      await new Promise(resolve => setTimeout(resolve, 200)); 
     } catch {}
-  }));
+  }
+
   const ids = Object.keys(universes);
   if (!ids.length) return 0;
+
   try {
     const r = await fetch(`https://games.roproxy.com/v1/games?universeIds=${ids.join(',')}`);
-    if (r.ok) (await r.json()).data.forEach(g => { confirmed.add(universes[g.id]); total += g.visits; });
+    if (r.ok) {
+      const d = await r.json();
+      d.data.forEach(g => { 
+        confirmed.add(universes[g.id]); 
+        total += g.visits; 
+      });
+    }
   } catch {}
+  
   if (!confirmed.size) return 0;
-  for (const place in D.fallbackPlaceVisits) if (!confirmed.has(+place)) total += D.fallbackPlaceVisits[place];
+  for (const place in D.fallbackPlaceVisits) {
+    if (!confirmed.has(+place)) total += D.fallbackPlaceVisits[place];
+  }
   return total;
 }
 
