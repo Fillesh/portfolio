@@ -54,51 +54,29 @@ function navi() {
 }
 
 async function roproxy() {
-  const universes = {};
-  const confirmed = new Set();
+  const ids = D.universeIds; 
+  if (!ids || !ids.length) return 0;
+
   let total = 0;
   
-  for (const place of D.visitPlaceIds) {
-    try {
-      const r = await fetch(`https://apis.roproxy.com/universes/v1/places/${place}/universe`);
-      
-      if (r.status === 429) {
-        console.warn('Rate limited by roproxy.');
-        break; 
-      }
-
-      if (r.ok) {
-        const d = await r.json();
-        if (d.universeId) universes[d.universeId] = place;
-      }
-      
-      await new Promise(resolve => setTimeout(resolve, 300)); 
-    } catch (e) {
-      console.error(`Fetch failed for place ${place}:`, e);
-    }
-  }
-
-  const ids = Object.keys(universes);
-  if (!ids.length) return 0;
-
   try {
     const r = await fetch(`https://games.roproxy.com/v1/games?universeIds=${ids.join(',')}`);
+    
     if (r.ok) {
       const d = await r.json();
       d.data.forEach(g => { 
-        confirmed.add(universes[g.id]); 
         total += g.visits; 
       });
+      return total;
+    } else if (r.status === 429) {
+      console.warn('Rate limited by roproxy');
+      return 0;
     }
   } catch (e) {
     console.error('Failed to fetch game visits:', e);
   }
   
-  if (!confirmed.size) return 0;
-  for (const place in D.fallbackPlaceVisits) {
-    if (!confirmed.has(+place)) total += D.fallbackPlaceVisits[place];
-  }
-  return total;
+  return 0;
 }
 
 async function visits() {
