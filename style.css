@@ -98,7 +98,6 @@ nav a:hover,nav a.on{color:#fff}
 .strip dd small{display:block;font-size:.75rem;color:var(--silver)}
 #cn{font-variant-numeric:tabular-nums}
 
-/* games: the count is the headline, then a plain list */
 .title.big{align-items:flex-end;margin-bottom:2rem}
 .title.big .num{font-size:clamp(5rem,13vw,11rem);line-height:.8;color:#fff}
 .title.big span:last-child{padding-bottom:.2em}
