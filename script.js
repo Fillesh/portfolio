@@ -61,12 +61,21 @@ async function roproxy() {
   for (const place of D.visitPlaceIds) {
     try {
       const r = await fetch(`https://apis.roproxy.com/universes/v1/places/${place}/universe`);
+      
+      if (r.status === 429) {
+        console.warn('Rate limited by roproxy.');
+        break; 
+      }
+
       if (r.ok) {
         const d = await r.json();
         if (d.universeId) universes[d.universeId] = place;
       }
-      await new Promise(resolve => setTimeout(resolve, 200)); 
-    } catch {}
+      
+      await new Promise(resolve => setTimeout(resolve, 300)); 
+    } catch (e) {
+      console.error(`Fetch failed for place ${place}:`, e);
+    }
   }
 
   const ids = Object.keys(universes);
@@ -81,7 +90,9 @@ async function roproxy() {
         total += g.visits; 
       });
     }
-  } catch {}
+  } catch (e) {
+    console.error('Failed to fetch game visits:', e);
+  }
   
   if (!confirmed.size) return 0;
   for (const place in D.fallbackPlaceVisits) {
