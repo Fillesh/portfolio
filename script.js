@@ -11,8 +11,72 @@ const fmt = n => n.toLocaleString('en-US');
 const video = $('#bg');
 const gate = $('#gate');
 const site = $('#site');
-const defaultvol = 0.25;
+const defaultvol = 0.2;
 const sections = ['home', 'work', 'skills', 'contact'];
+
+function picktheme() {
+  const list = Array.isArray(window.THEMELIST) ? window.THEMELIST : [];
+  if (!list.length) return null;
+
+  const forced = new URLSearchParams(location.search).get('theme');
+  if (forced && list.includes(forced)) return forced;
+
+  let seen = [];
+  let last = null;
+  try {
+    seen = JSON.parse(localStorage.getItem('seenthemes') || '[]');
+    last = localStorage.getItem('lasttheme');
+  } catch {}
+
+  if (!Array.isArray(seen)) seen = [];
+  seen = seen.filter(t => list.includes(t));
+
+  let pool = list.filter(t => !seen.includes(t));
+  if (!pool.length) {
+    seen = [];
+    pool = list.length > 1 ? list.filter(t => t !== last) : list;
+  }
+
+  const pick = pool[Math.floor(Math.random() * pool.length)];
+  seen.push(pick);
+
+  try {
+    localStorage.setItem('seenthemes', JSON.stringify(seen));
+    localStorage.setItem('lasttheme', pick);
+  } catch {}
+  return pick;
+}
+
+function loadstyle(href) {
+  return new Promise((resolve, reject) => {
+    const l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.id = 'theme-style';
+    l.href = href;
+    l.onload = resolve;
+    l.onerror = () => { l.remove(); reject(new Error('bro no load ' + href)); };
+    document.head.appendChild(l);
+  });
+}
+
+async function loadtheme() {
+  const name = picktheme();
+  if (!name) {
+    $('#boot')?.remove();
+    return;
+  }
+  const dir = 'Themes/' + encodeURIComponent(name);
+
+  document.documentElement.dataset.theme = name;
+  video.src = dir + '/vid.mp4';
+
+  try {
+    await loadstyle(dir + '/style.css');
+  } catch (e) {
+    console.warn('Theme udindindone:', e);
+  }
+  $('#boot')?.remove();
+}
 
 function render() {
   const info = Object.fromEntries(D.info);
@@ -40,7 +104,9 @@ function render() {
   $('#ln').innerHTML = D.contact.map(c =>
     `<li><a href="${esc(c.href)}" target="_blank" rel="noopener"><span class="k">${esc(c.key)}</span><span class="v">${esc(c.label)}</span></a></li>`).join('');
 
-  $('#ed').textContent = '© ' + new Date().getFullYear() + ' ' + D.nick;
+  const themename = document.documentElement.dataset.theme;
+  const themepart = themename ? ' · theme: ' + themename.toLowerCase() + ' · refresh to change it' : '';
+  $('#ed').textContent = '© ' + new Date().getFullYear() + ' ' + D.nick + themepart;
 }
 
 function navi() {
@@ -54,18 +120,18 @@ function navi() {
 }
 
 async function roproxy() {
-  const ids = D.universeIds; 
+  const ids = D.universeIds;
   if (!ids || !ids.length) return 0;
 
   let total = 0;
-  
+
   try {
     const r = await fetch(`https://games.roproxy.com/v1/games?universeIds=${ids.join(',')}`);
-    
+
     if (r.ok) {
       const d = await r.json();
-      d.data.forEach(g => { 
-        total += g.visits; 
+      d.data.forEach(g => {
+        total += g.visits;
       });
       return total;
     } else if (r.status === 429) {
@@ -75,13 +141,13 @@ async function roproxy() {
   } catch (e) {
     console.error('Failed to fetch game visits:', e);
   }
-  
+
   return 0;
 }
 
 async function visits() {
   const num = $('#cn');
-  
+
   let dots = 0;
   const loader = setInterval(() => {
     num.textContent = 'loading' + '.'.repeat(dots);
@@ -89,7 +155,7 @@ async function visits() {
   }, 350);
 
   let n = (await roproxy()) || D.fallbackVisits;
-  
+
   clearInterval(loader);
 
   if (reduced) num.textContent = fmt(n);
@@ -104,9 +170,9 @@ async function visits() {
       requestAnimationFrame(step);
     });
   }
-  
+
   num.textContent = fmt(n);
-  
+
   setInterval(async () => {
     const v = await roproxy();
     if (v && v !== n) { n = v; num.textContent = fmt(n); }
@@ -134,7 +200,6 @@ async function fallbackplay() {
 }
 
 async function boot() {
-  video.addEventListener('error', openn);
   $('#enter').addEventListener('click', async () => {
     await fallbackplay();
     openn();
@@ -149,9 +214,14 @@ async function boot() {
   }
 }
 
-render();
-navi();
-visits();
-boot();
+video.addEventListener('error', openn);
+
+(async () => {
+  await loadtheme();
+  render();
+  navi();
+  visits();
+  boot();
+})();
 
 })();
