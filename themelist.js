@@ -1,1 +1,1 @@
-window.THEMELIST = ['Yeat', 'Invincible', 'Kaiser', 'Elliot', 'Legion'];
+window.THEMELIST = ['Yeat', 'Invincible', 'Kaiser', 'Elliot', 'Neocorp'];
