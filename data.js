@@ -100,8 +100,8 @@ const PORTFOLIO = {
   workNote: 'and much more!!',
 
   contact: [
-    { key: 'roblox', label: 'filleshh', href: 'https://www.roblox.com/users/1684644288/profile' },
-    { key: 'youtube', label: 'fillesh', href: 'https://www.youtube.com/@fillesh' },
+    { key: 'roblox', label: 'Filleshh', href: 'https://www.roblox.com/users/1684644288/profile' },
+    { key: 'youtube', label: 'Fillesh', href: 'https://www.youtube.com/@fillesh' },
     { key: 'discord', label: 'Fillesh', href: 'https://discord.com/users/876476368748154960' },
     { key: 'medal', label: 'Fillesh', href: 'https://medal.tv/u/Fillesh' }
   ],
