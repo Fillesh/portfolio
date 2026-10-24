@@ -1,8 +1,8 @@
 :root{
   --paper:#eeede8;
   --silver:#a8a8a4;
-  --steel:#6a6a67;
-  --line:rgba(255,255,255,.2);
+  --steel:#d5d5d4;
+  --line:rgba(226, 222, 222, 0.397);
   --gutter:clamp(18px,3.2vw,44px);
   --rail:clamp(18px,9vw,130px);
   --display:'Anton',Impact,'Arial Narrow',sans-serif;
