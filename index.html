@@ -9,16 +9,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:wght@400;500;600&family=Major+Mono+Display&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<style id="boot">html{background:#000}body{opacity:0}</style>
+<style>
+.gate .hint{position:absolute;left:0;right:0;bottom:calc(2rem + env(safe-area-inset-bottom,0px));margin:0;text-align:center;font:500 12px/1 'Instrument Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);pointer-events:none}
+</style>
 </head>
 
 <body>
 
-<video id="bg" src="https://res.cloudinary.com/ziwimvfi/video/upload/v1792745618/vid.mp4" loop playsinline autoplay muted aria-hidden="true"></video>
+<video id="bg" loop playsinline autoplay muted preload="auto" aria-hidden="true"></video>
 <div class="grain" aria-hidden="true"></div>
 
 <div class="gate wait" id="gate" role="dialog" aria-modal="true" aria-label="Enter">
   <button class="enter" id="enter" type="button">enter</button>
+  <p class="hint">refresh the page for a different theme</p>
 </div>
 
 <div id="site" inert>
@@ -50,6 +54,7 @@
   </main>
 </div>
 
+<script src="themelist.js"></script>
 <script src="data.js"></script>
 <script src="script.js"></script>
 </body>
