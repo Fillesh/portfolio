@@ -215,3 +215,47 @@ a.track:hover .n{color:var(--amber)}
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
 }
+
+:root{
+  --pool:linear-gradient(90deg,rgba(10,9,7,.82),rgba(10,9,7,.5) 70%,rgba(10,9,7,.2));
+  --hair:rgba(236,230,218,.16);
+}
+
+nav a{display:flex;align-items:center;gap:.7rem;padding-right:0;border-right:0;color:var(--silver)}
+nav a::after{content:'';width:10px;height:1px;background:currentColor;opacity:.4;transition:width .25s,opacity .25s,background .25s}
+nav a:hover{color:var(--paper)}
+nav a:hover::after{width:22px;opacity:.8}
+nav a.on::after{width:34px;background:var(--amber);opacity:1}
+
+.title:not(.big)::before{content:'';width:22px;height:1px;background:var(--amber);align-self:center}
+
+.strip{
+  padding:1rem 1.2rem;border-top:0;
+  background:linear-gradient(rgba(10,9,7,.82),rgba(10,9,7,.82)) top/100% 1px no-repeat,rgba(10,9,7,.82);
+}
+
+.track{padding:.6rem .7rem;background:linear-gradient(90deg,rgba(10,9,7,.7),rgba(10,9,7,.3));border-bottom:1px solid var(--hair)}
+a.track:hover{background:linear-gradient(90deg,rgba(245,173,53,.17),rgba(10,9,7,.5) 65%);border-bottom-color:var(--amber)}
+
+.prio{
+  padding:1.5rem 1.2rem;border-top:1px solid var(--hair);
+  background:radial-gradient(60% 140% at 0% 100%,rgba(216,95,30,.17),transparent 70%),var(--pool);
+}
+.prio .st{color:var(--burnt)}
+
+.text{padding:1.2rem 1.3rem;background:var(--pool)}
+
+.sitems{gap:1rem 2.2rem}
+.sitem{padding:0}
+.sitem b{transition:color .25s}
+.sitem:hover b{color:var(--amber)}
+
+.contact li{background:linear-gradient(90deg,rgba(10,9,7,.7),rgba(10,9,7,.2))}
+.contact li a{padding:.5rem .8rem;transition:background .3s}
+.contact li a:hover{background:linear-gradient(90deg,rgba(245,173,53,.14),transparent 70%)}
+.contact .v{transition:color .25s,transform .3s}
+.contact li a:hover .v{transform:translateX(6px)}
+
+@media (max-width:760px){
+  nav a::after{display:none}
+}
