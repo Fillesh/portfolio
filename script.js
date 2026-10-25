@@ -65,7 +65,7 @@ async function loadtheme() {
     $('#boot')?.remove();
     return;
   }
-  const dir = 'Themes/' + encodeURIComponent(name);
+  const dir = encodeURIComponent(name);
 
   document.documentElement.dataset.theme = name;
   video.src = dir + '/vid.mp4';
