@@ -65,7 +65,7 @@ async function loadtheme() {
     $('#boot')?.remove();
     return;
   }
-  const dir = encodeURIComponent(name);
+  const dir = 'Themes/' + encodeURIComponent(name);
 
   document.documentElement.dataset.theme = name;
   video.src = dir + '/vid.mp4';
@@ -80,6 +80,9 @@ async function loadtheme() {
 
 function render() {
   const info = Object.fromEntries(D.info);
+
+  const sy = 2020;
+  info.experience = `${new Date().getFullYear() - sy} years`;
   $('#strip').innerHTML = `
     <div><dt>experience</dt><dd>${esc(info.experience)}</dd></div>
     <div><dt>total visits contributed</dt><dd><span id="cn">0</span></dd></div>`;
