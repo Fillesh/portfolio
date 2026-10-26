@@ -202,14 +202,25 @@ async function fallbackplay() {
   }
 }
 
+function waitforvideo() {
+  return new Promise(resolve => {
+    if (video.readyState >= 4) return resolve();
+    video.addEventListener('canplaythrough', resolve, { once: true });
+    setTimeout(resolve, 25000);
+  });
+}
+
 async function boot() {
+  video.preload = 'auto';
   $('#enter').addEventListener('click', async () => {
+    await waitforvideo();
     await fallbackplay();
     openn();
   });
   const reveal = setTimeout(() => { if (!opened) gate.classList.remove('wait'); }, 3500);
-  const ok = await fallbackplay();
+  await waitforvideo();
   clearTimeout(reveal);
+  const ok = await fallbackplay();
   if (ok) openn();
   else if (!opened) {
     gate.classList.remove('wait');
