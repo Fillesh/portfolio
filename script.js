@@ -68,7 +68,7 @@ async function loadtheme() {
   const dir = encodeURIComponent(name);
 
   document.documentElement.dataset.theme = name;
-  video.src = dir + '/vid.mp4';
+  video.src = dir + '/vid.mp4?v=2';
 
   try {
     await loadstyle(dir + '/style.css');
