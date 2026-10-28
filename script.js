@@ -1,16 +1,16 @@
 (() => {
 'use strict';
 
-const D = PORTFOLIO;
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const portfolio = PORTFOLIO;
+const que = (s, r = document) => r.querySelector(s);
+const queall = (s, r = document) => [...r.querySelectorAll(s)];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const fmt = n => n.toLocaleString('en-US');
+const htmlesc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const formatnum = n => n.toLocaleString('en-US');
 
-const video = $('#bg');
-const gate = $('#gate');
-const site = $('#site');
+const video = que('#bg');
+const gate = que('#gate');
+const site = que('#site');
 const defaultvol = 0.2;
 const sections = ['home', 'work', 'skills', 'contact'];
 
@@ -62,7 +62,7 @@ function loadstyle(href) {
 async function loadtheme() {
   const name = picktheme();
   if (!name) {
-    $('#boot')?.remove();
+    que('#boot')?.remove();
     return;
   }
   const dir = encodeURIComponent(name);
@@ -75,55 +75,55 @@ async function loadtheme() {
   } catch (e) {
     console.warn('Theme udindindone:', e);
   }
-  $('#boot')?.remove();
+  que('#boot')?.remove();
 }
 
 function render() {
-  const info = Object.fromEntries(D.info);
+  const info = Object.fromEntries(portfolio.info);
 
   const sy = 2020;
   info.experience = `${new Date().getFullYear() - sy} years`;
-  $('#strip').innerHTML = `
-    <div><dt>experience</dt><dd>${esc(info.experience)}</dd></div>
+  que('#strip').innerHTML = `
+    <div><dt>experience</dt><dd>${htmlesc(info.experience)}</dd></div>
     <div><dt>total visits contributed</dt><dd><span id="cn">0</span></dd></div>`;
 
-  $('#nv').innerHTML = sections.map(s => `<a href="#${s}">${s}</a>`).join('');
+  que('#nv').innerHTML = sections.map(s => `<a href="#${s}">${s}</a>`).join('');
 
-  Object.entries(D.sections).forEach(([k, v]) => { const el = $('#t-' + k); if (el) el.textContent = v; });
+  Object.entries(portfolio.sections).forEach(([k, v]) => { const el = que('#t-' + k); if (el) el.textContent = v; });
 
-  $('#sl').innerHTML = D.skills.map(g => `
-    <div class="sgroup"><h3>${esc(g.group)}</h3><div class="sitems">${g.items.map(s =>
-      `<div class="sitem"><b>${esc(s.name)}</b><span>${esc(s.level)}</span></div>`).join('')}</div></div>`).join('');
-  $('#also').textContent = D.skillsNote;
+  que('#sl').innerHTML = portfolio.skills.map(g => `
+    <div class="sgroup"><h3>${htmlesc(g.group)}</h3><div class="sitems">${g.items.map(s =>
+      `<div class="sitem"><b>${htmlesc(s.name)}</b><span>${htmlesc(s.level)}</span></div>`).join('')}</div></div>`).join('');
+  que('#also').textContent = portfolio.skillsNote;
 
-  $('#gl').innerHTML = D.games.map(g => {
-    const body = `<span class="n">${esc(g.name)}</span><span class="r">${esc(g.role)}${g.inDev ? '<i>in development</i>' : ''}</span>`;
+  que('#gl').innerHTML = portfolio.games.map(g => {
+    const body = `<span class="n">${htmlesc(g.name)}</span><span class="r">${htmlesc(g.role)}${g.inDev ? '<i>in development</i>' : ''}</span>`;
     return g.url
-      ? `<li><a class="track" href="${esc(g.url)}" target="_blank" rel="noopener">${body}</a></li>`
+      ? `<li><a class="track" href="${htmlesc(g.url)}" target="_blank" rel="noopener">${body}</a></li>`
       : `<li><div class="track">${body}</div></li>`;
   }).join('');
-  $('#wn').textContent = D.workNote;
+  que('#wn').textContent = portfolio.workNote;
 
-  $('#ln').innerHTML = D.contact.map(c =>
-    `<li><a href="${esc(c.href)}" target="_blank" rel="noopener"><span class="k">${esc(c.key)}</span><span class="v">${esc(c.label)}</span></a></li>`).join('');
+  que('#ln').innerHTML = portfolio.contact.map(c =>
+    `<li><a href="${htmlesc(c.href)}" target="_blank" rel="noopener"><span class="k">${htmlesc(c.key)}</span><span class="v">${htmlesc(c.label)}</span></a></li>`).join('');
 
   const themename = document.documentElement.dataset.theme;
   const themepart = themename ? ' · theme: ' + themename.toLowerCase() + ' · refresh to change it' : '';
-  $('#ed').textContent = '© ' + new Date().getFullYear() + ' ' + D.nick + themepart;
+  que('#ed').textContent = '© ' + new Date().getFullYear() + ' ' + portfolio.nick + themepart;
 }
 
 function navi() {
-  const links = $$('#nv a');
+  const links = queall('#nv a');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  $$('main section').forEach(s => io.observe(s));
+  queall('main section').forEach(s => io.observe(s));
 }
 
 async function roproxy() {
-  const ids = D.universeIds;
+  const ids = portfolio.universeIds;
   if (!ids || !ids.length) return 0;
 
   let total = 0;
@@ -149,7 +149,7 @@ async function roproxy() {
 }
 
 async function visits() {
-  const num = $('#cn');
+  const num = que('#cn');
 
   let dots = 0;
   const loader = setInterval(() => {
@@ -157,28 +157,28 @@ async function visits() {
     dots = (dots + 1) % 4;
   }, 350);
 
-  let n = (await roproxy()) || D.fallbackVisits;
+  let n = (await roproxy()) || portfolio.fallbackVisits;
 
   clearInterval(loader);
 
-  if (reduced) num.textContent = fmt(n);
+  if (reduced) num.textContent = formatnum(n);
   else {
     const start = performance.now(), span = 1400;
     await new Promise(done => {
       const step = t => {
         const k = Math.min((t - start) / span, 1);
-        num.textContent = fmt(Math.floor(n * (1 - Math.pow(1 - k, 4))));
+        num.textContent = formatnum(Math.floor(n * (1 - Math.pow(1 - k, 4))));
         if (k < 1) requestAnimationFrame(step); else done();
       };
       requestAnimationFrame(step);
     });
   }
 
-  num.textContent = fmt(n);
+  num.textContent = formatnum(n);
 
   setInterval(async () => {
     const v = await roproxy();
-    if (v && v !== n) { n = v; num.textContent = fmt(n); }
+    if (v && v !== n) { n = v; num.textContent = formatnum(n); }
   }, 60000);
 }
 
@@ -212,7 +212,7 @@ function waitforvideo() {
 
 async function boot() {
   video.preload = 'auto';
-  $('#enter').addEventListener('click', async () => {
+  que('#enter').addEventListener('click', async () => {
     await waitforvideo();
     await fallbackplay();
     openn();
@@ -224,7 +224,7 @@ async function boot() {
   if (ok) openn();
   else if (!opened) {
     gate.classList.remove('wait');
-    $('#enter').focus({ preventScroll: true });
+    que('#enter').focus({ preventScroll: true });
   }
 }
 
