@@ -11,7 +11,7 @@ const formatnum = n => n.toLocaleString('en-US');
 const video = que('#bg');
 const gate = que('#gate');
 const site = que('#site');
-const defaultvol = 0.2;
+const defaultvol = 0.1;
 const sections = ['home', 'work', 'skills', 'contact'];
 
 function picktheme() {
