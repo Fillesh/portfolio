@@ -252,7 +252,3 @@ a.track:hover{background:linear-gradient(90deg,rgba(245,173,53,.17),rgba(10,9,7,
 .contact li a:hover{background:linear-gradient(90deg,rgba(245,173,53,.14),transparent 70%)}
 .contact .v{transition:color .25s,transform .3s}
 .contact li a:hover .v{transform:translateX(6px)}
-
-@media (max-width:760px){
-  nav a::after{display:none}
-}
