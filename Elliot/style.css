@@ -222,10 +222,7 @@ a.track:hover .n{color:var(--amber)}
 }
 
 nav a{display:flex;align-items:center;gap:.7rem;padding-right:0;border-right:0;color:var(--silver)}
-nav a::after{content:'';width:10px;height:1px;background:currentColor;opacity:.4;transition:width .25s,opacity .25s,background .25s}
 nav a:hover{color:var(--paper)}
-nav a:hover::after{width:22px;opacity:.8}
-nav a.on::after{width:34px;background:var(--amber);opacity:1}
 
 .title:not(.big)::before{content:'';width:22px;height:1px;background:var(--amber);align-self:center}
 
